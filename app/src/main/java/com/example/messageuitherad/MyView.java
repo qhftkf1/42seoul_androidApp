@@ -68,9 +68,14 @@ public class MyView extends View {
         super.onDraw(canvas);
 
         Paint pnt = new Paint();
+        //Paint pnt2 = new Paint();
         //pnt.setColor(Color.BLUE);
         pnt.setColor((int)Long.parseLong(mColor, 16));
+        //pnt2.setColor((int)Long.parseLong(mColor, 16));
         canvas.drawColor(Color.WHITE);
         canvas.drawCircle(100, 100, 80, pnt);
+        canvas.drawCircle(300, 100, 80, pnt);
+        pnt.setTextSize(100);
+        canvas.drawText("Hello", 400, 100, pnt);
     }
 }
