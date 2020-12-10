@@ -34,7 +34,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/selection"
-        android:text="Test APP : 1"
+        android:text="Test APP : 1\n CustomView APP"
         android:gravity="center"
         android:textSize="50px"
         android:fontFamily="sans-serif-black"/>

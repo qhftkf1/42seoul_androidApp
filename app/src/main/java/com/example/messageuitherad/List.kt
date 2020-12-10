@@ -14,5 +14,8 @@ class List : AppCompatActivity() {
         section_1.setOnClickListener {
             startActivity( Intent(this, Countdown::class.java))
         }
+        section_2.setOnClickListener {
+            startActivity( Intent(this, MyCustomView::class.java))
+        }
     }
 }
