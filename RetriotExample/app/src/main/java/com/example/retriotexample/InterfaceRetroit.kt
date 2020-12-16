@@ -15,10 +15,10 @@ interface CoronaAPIService{
     @GET("openapi/service/rest/Covid19/getCovid19InfStateJson")
     fun getAPI(
         @Query("serviceKey") serviceKey: String,
-        @Query("pageNo") pageNo : String,
-        @Query("numOfRows") numOfRows : String,
-        @Query("startCreateDt") start : String,
-        @Query("endCreateDt") end : String
+        @Query("pageNo") pageNo : String?,
+        @Query("numOfRows") numOfRows : String?,
+        @Query("startCreateDt") start : String?,
+        @Query("endCreateDt") end : String?
     ): Call<Response>
     companion object{
         val BASE_URL = "http://openapi.data.go.kr/"
@@ -28,19 +28,10 @@ interface CoronaAPIService{
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(client)
-//                .callFactory(OkHttpClient.Builder().build())
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .build()
                 .create(CoronaAPIService::class.java)
         }
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .callFactory(OkHttpClient.Builder().build())
-//            .addConverterFactory(JaxbConverterFactory.create())
-//            .build()
-//
-//        val api = retrofit.create(CoronaAPIService::class.java)
-//        val callCoronaAPI = api.getAPI(CLIENT_KEY, null, null, null, null)
     }
 
 }
