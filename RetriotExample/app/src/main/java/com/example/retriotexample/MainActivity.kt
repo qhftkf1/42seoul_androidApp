@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("결과2","${data?.toString()}")
                 var yesterdayDecide: Int = Integer.parseInt(data?.get(0)?.decideCnt)
                 var todayDecide: Int = Integer.parseInt(data?.get(1)?.decideCnt)
-                coronaTodayContent.setText((yesterdayDecide - todayDecide).toString())
+//                coronaTodayContent.setText((yesterdayDecide - todayDecide).toString())
             }
         })
     }
