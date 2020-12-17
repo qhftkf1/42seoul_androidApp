@@ -2,4 +2,14 @@
     <string name="app_name">RetriotExample</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="corona_array">
+        <item>20201217</item>
+        <item>20201216</item>
+        <item>20201215</item>
+        <item>20201214</item>
+        <item>20201213</item>
+        <item>20201212</item>
+        <item>20201211</item>
+        <item>20201210</item>
+    </string-array>
 </resources>
