@@ -13,3 +13,13 @@
   <p>This is <a href="https://youtu.be/IVUdF9zhUOg" title="Title">
 the Start APP</a> </p>
  </details>
+<details>
+ <summary>[Retrofit APP] Getting API</summary>
+ <img src = "https://user-images.githubusercontent.com/36848509/102460710-bddd6600-408a-11eb-90a1-b7d602e62b6d.png"/>
+ <img src = "https://user-images.githubusercontent.com/36848509/102460726-c46bdd80-408a-11eb-8207-e2a9149dde3d.png"/>
+ <img src = "https://user-images.githubusercontent.com/36848509/102460726-c46bdd80-408a-11eb-8207-e2a9149dde3d.png"/>
+ <img src = "https://user-images.githubusercontent.com/36848509/102460731-c59d0a80-408a-11eb-829d-5d7da24b8c99.png"/>
+ <img src = "https://user-images.githubusercontent.com/36848509/102460735-c6ce3780-408a-11eb-88a4-104d20ebd969.png"/>
+ <img src = "https://user-images.githubusercontent.com/36848509/102460740-c7ff6480-408a-11eb-8c88-089ceb2d8792.png"/>
+ <img src = "https://user-images.githubusercontent.com/36848509/102460743-c9309180-408a-11eb-8122-735582b174a6.png"/>
+</details>
