@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.LinearLayout
+import android.widget.SearchView
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.getdatafromgithubapi.adapter.CustomAdapter
 import com.example.getdatafromgithubapi.client.GithubClient
@@ -15,37 +17,46 @@ import io.reactivex.schedulers.Schedulers
 
 class MainActivity : AppCompatActivity() {
     private  lateinit var binding: ActivityMainBinding
-    var userList = arrayListOf<DataVo>()
+    var userId : String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        GithubClient.getAPI().getRepos("qhftkf1")
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({items ->
-                items.forEach{
-                    Log.d("it----------------","${it.name}, ${it.date}")
-                    userList.add( DataVo(it.name, it.date))
-                }
-                val mAdapter = CustomAdapter(this, userList)
-                binding.recyclerView.adapter = mAdapter
+        binding.name.text = "Get Github repo"
+        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener, androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                if (p0 != null) {
+                    userId = p0
+                };
+                githubData(userId)
+                return false
+            }
+            override fun onQueryTextChange(p0: String?): Boolean {
+                if (p0 != null) {
+                    userId = p0
+                };
+                githubData(userId)
+                return false
+            }
 
+        })
+        setContentView(binding.root)
+    }
+
+    private fun githubData(userId: String) {
+        GithubClient.getAPI().getRepos(userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({items ->
+                    var userList = arrayListOf<DataVo>()
+                    items.forEach{
+                        userList.add( DataVo(it.name, it.date))
+                    }
 //                val layout = LinearLayoutManager(this)
 //                binding.recyclerView.layoutManager = layout
-//                binding.recyclerView.setHasFixedSize(true)
-            }, { e ->
-                println(e.toString())
-            })
-
-        setContentView(binding.root)
-
-//        GithubClient.getAPI().getRepos("qhftkf1")
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe({items ->
-//                items.forEach{ println(it)}
-//            }, { e ->
-//                println(e.toString())
-//            })
+                    val mAdapter = CustomAdapter(this, userList)
+                    binding.recyclerView.adapter = mAdapter
+                }, { e ->
+                    println(e.toString())
+                })
     }
 }
