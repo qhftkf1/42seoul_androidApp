@@ -13,7 +13,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
         android:text="name"
-        android:textSize="20dp"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="create"
-        android:textSize="15dp"
+        android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.598"
         app:layout_constraintStart_toEndOf="@+id/name"

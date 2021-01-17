@@ -16,7 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class MainActivity : AppCompatActivity() {
-    private  lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     var userId : String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,18 +31,13 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
             override fun onQueryTextChange(p0: String?): Boolean {
-                if (p0 != null) {
-                    userId = p0
-                };
-                githubData(userId)
                 return false
             }
-
         })
         setContentView(binding.root)
     }
 
-    private fun githubData(userId: String) {
+    fun githubData(userId: String){
         GithubClient.getAPI().getRepos(userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -51,12 +46,12 @@ class MainActivity : AppCompatActivity() {
                     items.forEach{
                         userList.add( DataVo(it.name, it.date))
                     }
-//                val layout = LinearLayoutManager(this)
-//                binding.recyclerView.layoutManager = layout
                     val mAdapter = CustomAdapter(this, userList)
                     binding.recyclerView.adapter = mAdapter
                 }, { e ->
                     println(e.toString())
                 })
     }
+
+
 }

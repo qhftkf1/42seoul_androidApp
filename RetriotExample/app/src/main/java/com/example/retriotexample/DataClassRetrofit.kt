@@ -61,9 +61,9 @@ data class Item @JvmOverloads constructor(
     @param:Element(name = "stateDt")
     var stateDt: String? = null,
 
-    @field:Element(name = "stateTime", required = false)
-    @param:Element(name = "stateTime")
-    var stateTime: String? = null,
+//    @field:Element(name = "stateTime", required = false)
+//    @param:Element(name = "stateTime")
+//    var stateTime: String? = null,
 
     @field:Element(name = "updateDt", required = false)
     @param:Element(name = "updateDt")

@@ -19,3 +19,17 @@ class GithubClient {
             .create(GithubAPIService::class.java)
     }
 }
+
+class FortyTwoClient {
+    companion object{
+        private const val BASE_URL = "https://api.github.com"
+
+        fun getRestAPI(): GithubAPIService = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .client(OkHttpClient())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(GithubAPIService::class.java)
+    }
+}

@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
                 coronaTodayDeathContent.setText((Integer.parseInt(todayCorona?.deathCnt) - Integer.parseInt(yesterdayCorona?.deathCnt)).toString())
                 coronaTodayCareContent.setText((Integer.parseInt(todayCorona?.careCnt) - Integer.parseInt(yesterdayCorona?.careCnt)).toString())
                 coronaTodayExamContent.setText((Integer.parseInt(todayCorona?.examCnt) - Integer.parseInt(yesterdayCorona?.examCnt)).toString())
-
             }
         })
     }

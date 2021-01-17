@@ -14,24 +14,11 @@ class CustomAdapter (private val context: Context, private val dataList: ArrayLi
 
     var mPosition = 0
 
-    fun getPosition(position: Int): Int {
-        return mPosition
-    }
 
     fun setPosition(position: Int){
         mPosition = position
     }
-    fun addItem(dataVo: DataVo){
-        dataList.add(dataVo)
-        notifyDataSetChanged()
-    }
 
-    fun removeItem(position: Int){
-        if(position > 0) {
-            dataList.removeAt(position)
-            notifyDataSetChanged()
-        }
-    }
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val userName = itemView.findViewById<TextView>(R.id.name)
         private val userCreate = itemView.findViewById<TextView>(R.id.create)
@@ -53,9 +40,6 @@ class CustomAdapter (private val context: Context, private val dataList: ArrayLi
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(dataList[position], context)
-        holder.itemView.setOnClickListener {
-            view -> setPosition(position)
-        }
     }
 
 }
