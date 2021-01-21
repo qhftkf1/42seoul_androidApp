@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
                     userId = p0
                 };
                 fortyTwoImg(userId)
+
                 return false
             }
             override fun onQueryTextChange(p0: String?): Boolean {
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
         Log.d("fffffffff", "${FortyTwoClient.url}")
+
         Glide.with(this).load(FortyTwoClient.url).into(binding.fwImg)
         setContentView(binding.root)
     }
@@ -47,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     Log.d("eeeeeeee", "${userId}")
                     FortyTwoClient.url = response.body()?.url.toString()
                     Log.d("url", "${FortyTwoClient.url}")
-
+                    Glide.with(this@MainActivity).load(FortyTwoClient.url).into(binding.fwImg)
                     if(response.isSuccessful)
                         success(response.body())
                 }
